@@ -61,15 +61,23 @@
         }
 
         .promociones {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             margin: 20px 0;
         }
 
         .promociones div {
-            margin: 10px 0;
+            margin: 10px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             background-color: #fff;
+            transition: transform 0.2s;
+        }
+
+        .promociones div:hover {
+            transform: scale(1.05);
         }
 
         .promociones img {
@@ -122,7 +130,7 @@
     <section>
         <h2>Bienvenidos al Nido del Craving</h2>
         <p>¡El lugar perfecto para disfrutar de hamburguesas, pizzas y yogurt en Xalapa!</p>
-        <p>En el nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para relajarte con amigos, ¡tenemos lo que necesitas!
+        <p>En el nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para r[...]
     </section>
 
     <section id="promociones" class="promociones">
