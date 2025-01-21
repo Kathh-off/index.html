@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
             padding: 0;
             text-align: center;
             background-color: #F3F4F6;
@@ -21,30 +21,33 @@
 
         header {
             background-color: #1E3A8A;
-            padding: 20px;
+            padding: 10px 20px;
             width: 100%;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
             position: relative;
+            box-sizing: border-box;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 1.8em;
             color: #FFFFFF;
+            flex: 1;
+            text-align: center;
         }
 
         header img {
-            max-width: 150px;
+            max-width: 100px;
             height: auto;
-            position: absolute;
-            top: 20px;
-            left: 20px;
         }
 
         nav {
-            margin-top: 15px;
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            align-items: center;
         }
 
         nav a {
@@ -54,10 +57,68 @@
             font-weight: bold;
         }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: #FFFFFF;
+            margin: 4px 0;
+            transition: all 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-links.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+                text-align: center;
+                flex: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 50px;
+                right: 20px;
+                background-color: #1E3A8A;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+                color: #FFFFFF;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+        }
+
         main {
             width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
         }
 
         .promociones {
@@ -75,7 +136,7 @@
             border-radius: 5px;
             background-color: #fff;
             transition: transform 0.2s;
-            flex: 1 1 calc(33.33% - 20px); /* Default width for larger screens */
+            flex: 1 1 calc(33.33% - 20px);
             box-sizing: border-box;
         }
 
@@ -118,21 +179,13 @@
 
         @media (max-width: 768px) {
             .promociones div {
-                flex: 1 1 calc(50% - 20px); /* Adjust width for tablets */
+                flex: 1 1 calc(50% - 20px);
             }
         }
 
         @media (max-width: 480px) {
             .promociones div {
-                flex: 1 1 calc(100% - 20px); /* Adjust width for mobile screens */
-            }
-
-            header img {
-                max-width: 100px; /* Adjust logo size for smaller screens */
-            }
-
-            header h1 {
-                font-size: 2em; /* Adjust title size for smaller screens */
+                flex: 1 1 calc(100% - 20px);
             }
         }
     </style>
@@ -140,9 +193,14 @@
 <body>
 
 <header>
-    <a href="examen.html"><img src="logo nido.jpg" alt="Logotipo de El Nido del Craving"></a>
+    <img src="logo nido.jpg" alt="Logotipo de El Nido del Craving">
     <h1>El Nido del Craving</h1>
-    <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <nav class="nav-links hidden">
         <a href="#menu">Menú</a>
         <a href="#promociones">Promociones</a>
         <a href="#contacto">Contacto</a>
@@ -150,61 +208,19 @@
 </header>
 
 <main>
-    <section>
-        <h2>Bienvenidos al Nido del Craving</h2>
-        <p>¡El lugar perfecto para disfrutar de hamburguesas, pizzas y yogurt en Xalapa!</p>
-        <p>En el nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para relajarte con amigos, ¡tenemos lo que necesitas!
-    </section>
-
-    <section id="promociones" class="promociones">
-        <h2>Nuestras Promociones</h2>
-        <div>
-            <img src="burger.jpg" alt="Combo Estudiante">
-            <p><strong>Combo Estudiante: Hamburguesa + Papas + Refresco por solo $79 MXN.</strong></p>
-        </div>
-        <div>
-            <img src="pizza.jpg" alt="Pizza 2x1">
-            <p><strong>Pizza 2x1: Todos los martes y jueves disfruta de nuestras pizzas al 2x1.</strong></p>
-        </div>
-        <div>
-            <img src="yogurt.jpg" alt="Yogurt Especial">
-            <p><strong>Yogurt Especial: Lleva un yogurt con toppings gratis al comprar cualquier combo.</strong></p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Conoce nuestras Instalaciones</h2>
-        <p>Disfruta de un espacio diseñado pensando en ti. Nuestro restaurante cuenta con áreas de:</p>
-        <ul>
-            <li>Comedor acogedor para relajarte y disfrutar de tus comidas.</li>
-            <li>Zona de pedidos rápida para llevar tus alimentos sin esperar demasiado.</li>
-            <li>Área de estudio con Wi-Fi gratuito, ideal para hacer tareas mientras comes algo delicioso.</li>
-        </ul>
-    </section>
-
-    <section class="ordenar">
-        <a href="#">¡Ordena Ahora!</a>
-    </section>
-
-    <section id="contacto">
-        <h2>Ubicación</h2>
-        <p>Nos encontramos en:</p>
-        <address>
-            Arco Sur Paseo 112 lote 2, Campo Nuevo, 91097 Xalapa-Enríquez, Ver., México
-        </address>
-        <p>Ven a conocernos, estamos ubicados a solo unos minutos de la universidad.</p>
-    </section>
+    <!-- Contenido principal -->
 </main>
 
 <footer>
-    <p>Síguenos en:</p>
-    <a href="#">Facebook</a> |
-    <a href="#">Instagram</a> |
-    <a href="#">Twitter</a>
+    <p>&copy; Katherine Huerta Almora, Última actualización 20/01/2025 All Rights Reserved.</p>
 </footer>
-<div class="footer">
-  <p>&copy; Katherine Huerta Almora, Última actualización 20/01/2025 All Rights Reserved.</p>
-</div>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('show');
+    }
+</script>
 
 </body>
 </html>
