@@ -45,9 +45,9 @@
 
         nav {
             display: flex;
-            flex: 1;
             justify-content: flex-end;
             align-items: center;
+            flex: 1;
         }
 
         nav a {
@@ -61,9 +61,6 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 20px;
         }
 
         .menu-toggle div {
@@ -79,16 +76,7 @@
             flex-direction: row;
         }
 
-        .nav-links.hidden {
-            display: none;
-        }
-
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.5em;
-                text-align: center;
-            }
-
             .menu-toggle {
                 display: flex;
             }
@@ -199,7 +187,7 @@
         <div></div>
         <div></div>
     </div>
-    <nav class="nav-links hidden">
+    <nav class="nav-links">
         <a href="#menu">Menú</a>
         <a href="#promociones">Promociones</a>
         <a href="#contacto">Contacto</a>
@@ -210,7 +198,7 @@
     <section>
         <h2>Bienvenidos al Nido del Craving</h2>
         <p>¡El lugar perfecto para disfrutar de hamburguesas, pizzas y yogurt en Xalapa!</p>
-        <p>En el nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para relajarte con amigos, ¡tenemos lo que necesitas!
+        <p>En el nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para relajarte con amigos, ¡tenemos lo que necesitas!</p>
     </section>
 
     <section id="promociones" class="promociones">
@@ -221,7 +209,7 @@
         </div>
         <div>
             <img src="pizza.jpg" alt="Pizza 2x1">
-            <p><Strong>Pizza 2x1: Todos los martes y jueves disfruta de nuestras pizzas al 2x1.</Strong></p>
+            <p><strong>Pizza 2x1: Todos los martes y jueves disfruta de nuestras pizzas al 2x1.</strong></p>
         </div>
         <div>
             <img src="yogurt.jpg" alt="Yogurt Especial">
@@ -266,4 +254,5 @@
 
 </body>
 </html>
+
 
