@@ -7,11 +7,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px; /* Added margin */
+            margin: 20px;
             padding: 0;
             text-align: center;
-            background-color: #F3F4F6; /* Color secundario */
-            color: #1F2937; /* Color de texto secundario */
+            background-color: #F3F4F6;
+            color: #1F2937;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,7 +20,7 @@
         }
 
         header {
-            background-color: #1E3A8A; /* Color principal */
+            background-color: #1E3A8A;
             padding: 20px;
             width: 100%;
             display: flex;
@@ -32,7 +32,7 @@
         header h1 {
             margin: 0;
             font-size: 2.5em;
-            color: #FFFFFF; /* Color de texto principal */
+            color: #FFFFFF;
         }
 
         header img {
@@ -50,7 +50,7 @@
         nav a {
             margin: 0 15px;
             text-decoration: none;
-            color: #10B981; /* Color de acento */
+            color: #10B981;
             font-weight: bold;
         }
 
@@ -64,6 +64,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            flex-wrap: wrap;
             margin: 20px 0;
         }
 
@@ -74,6 +75,8 @@
             border-radius: 5px;
             background-color: #fff;
             transition: transform 0.2s;
+            flex: 1 1 calc(33.33% - 20px); /* Default width for larger screens */
+            box-sizing: border-box;
         }
 
         .promociones div:hover {
@@ -92,9 +95,9 @@
 
         .ordenar a {
             display: inline-block;
-            background-color: #1E3A8A; /* Color principal */
+            background-color: #1E3A8A;
             padding: 10px 20px;
-            color: #FFFFFF; /* Color de texto principal */
+            color: #FFFFFF;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
@@ -103,24 +106,33 @@
         footer {
             margin-top: 20px;
             padding: 10px;
-            background-color: #1E3A8A; /* Color principal */
-            color: #FFFFFF; /* Color de texto principal */
+            background-color: #1E3A8A;
+            color: #FFFFFF;
             font-size: 0.9em;
         }
 
         footer a {
-            color: #10B981; /* Color de acento */
+            color: #10B981;
             text-decoration: none;
         }
+
         @media (max-width: 768px) {
             .promociones div {
-                width: calc(50% - 20px); /* Adjust width for smaller screens */
+                flex: 1 1 calc(50% - 20px); /* Adjust width for tablets */
             }
         }
 
         @media (max-width: 480px) {
             .promociones div {
-                width: calc(100% - 20px); /* Adjust width for mobile screens */
+                flex: 1 1 calc(100% - 20px); /* Adjust width for mobile screens */
+            }
+
+            header img {
+                max-width: 100px; /* Adjust logo size for smaller screens */
+            }
+
+            header h1 {
+                font-size: 2em; /* Adjust title size for smaller screens */
             }
         }
     </style>
@@ -128,7 +140,7 @@
 <body>
 
 <header>
-    <a href= "examen.html"><img src="logo nido.jpg" alt="Logotipo de El Nido del Craving">
+    <a href="examen.html"><img src="logo nido.jpg" alt="Logotipo de El Nido del Craving"></a>
     <h1>El Nido del Craving</h1>
     <nav>
         <a href="#menu">Menú</a>
@@ -152,7 +164,7 @@
         </div>
         <div>
             <img src="pizza.jpg" alt="Pizza 2x1">
-            <p><Strong>Pizza 2x1: Todos los martes y jueves disfruta de nuestras pizzas al 2x1.</Strong></p>
+            <p><strong>Pizza 2x1: Todos los martes y jueves disfruta de nuestras pizzas al 2x1.</strong></p>
         </div>
         <div>
             <img src="yogurt.jpg" alt="Yogurt Especial">
@@ -190,7 +202,7 @@
     <a href="#">Instagram</a> |
     <a href="#">Twitter</a>
 </footer>
-    <div class="footer">
+<div class="footer">
   <p>&copy; Katherine Huerta Almora, Última actualización 20/01/2025 All Rights Reserved.</p>
 </div>
 
