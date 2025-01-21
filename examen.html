@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
+            margin: 20px;
             padding: 0;
             text-align: center;
             background-color: #F3F4F6;
@@ -21,33 +21,27 @@
 
         header {
             background-color: #1E3A8A;
-            padding: 10px 20px;
+            padding: 20px;
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
-            box-sizing: border-box;
         }
 
         header h1 {
             margin: 0;
-            font-size: 1.8em;
+            font-size: 2.5em;
             color: #FFFFFF;
-            text-align: center;
-            flex: 1;
         }
 
         header img {
-            max-width: 100px;
+            max-width: 150px;
             height: auto;
         }
 
         nav {
             display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            flex: 1;
         }
 
         nav a {
@@ -59,60 +53,61 @@
 
         .menu-toggle {
             display: none;
-            flex-direction: column;
+            background-color: transparent;
+            border: none;
             cursor: pointer;
+            font-size: 1.5em;
+            color: #FFFFFF;
         }
 
-        .menu-toggle div {
-            width: 25px;
-            height: 3px;
-            background-color: #FFFFFF;
-            margin: 4px 0;
-            transition: all 0.3s;
+        .menu-toggle:focus {
+            outline: none;
         }
 
-        .nav-links {
+        .menu {
             display: flex;
-            flex-direction: row;
+        }
+
+        .menu.show {
+            display: block;
         }
 
         @media (max-width: 768px) {
-            .menu-toggle {
+            nav {
+                display: none;
+                flex-direction: column;
+                background-color: #1E3A8A;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            nav.show {
                 display: flex;
             }
 
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 50px;
-                right: 20px;
-                background-color: #1E3A8A;
-                padding: 10px;
-                border-radius: 5px;
-            }
-
-            .nav-links a {
+            nav a {
                 margin: 10px 0;
                 color: #FFFFFF;
             }
 
-            .nav-links.show {
-                display: flex;
+            .menu-toggle {
+                display: block;
             }
         }
 
         main {
             width: 100%;
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 0 auto;
         }
 
         .promociones {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            flex-wrap: wrap;
             margin: 20px 0;
         }
 
@@ -123,8 +118,6 @@
             border-radius: 5px;
             background-color: #fff;
             transition: transform 0.2s;
-            flex: 1 1 calc(33.33% - 20px);
-            box-sizing: border-box;
         }
 
         .promociones div:hover {
@@ -165,14 +158,12 @@
         }
 
         @media (max-width: 768px) {
-            .promociones div {
-                flex: 1 1 calc(50% - 20px);
+            .promociones {
+                flex-direction: column;
             }
-        }
 
-        @media (max-width: 480px) {
             .promociones div {
-                flex: 1 1 calc(100% - 20px);
+                width: calc(100% - 20px);
             }
         }
     </style>
@@ -182,12 +173,8 @@
 <header>
     <img src="logo nido.jpg" alt="Logotipo de El Nido del Craving">
     <h1>El Nido del Craving</h1>
-    <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <nav class="nav-links">
+    <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
+    <nav class="menu">
         <a href="#menu">Menú</a>
         <a href="#promociones">Promociones</a>
         <a href="#contacto">Contacto</a>
@@ -198,7 +185,7 @@
     <section>
         <h2>Bienvenidos al Nido del Craving</h2>
         <p>¡El lugar perfecto para disfrutar de hamburguesas, pizzas y yogurt en Xalapa!</p>
-        <p>En el nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para relajarte con amigos, ¡tenemos lo que necesitas!</p>
+        <p>En el Nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para relajarte con amigos, ¡tenemos lo que necesitas!</p>
     </section>
 
     <section id="promociones" class="promociones">
@@ -242,14 +229,22 @@
 </main>
 
 <footer>
-    <p>&copy; Katherine Huerta Almora, Última actualización 20/01/2025 All Rights Reserved.</p>
+    <p>Síguenos en:</p>
+    <a href="#">Facebook</a> |
+    <a href="#">Instagram</a> |
+    <a href="#">Twitter</a>
 </footer>
+<div class="footer">
+    <p>&copy; Katherine Huerta Almora, Última actualización 20/01/2025. All Rights Reserved.</p>
+</div>
 
 <script>
-    function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('show');
-    }
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('show');
+    });
 </script>
 
 </body>
