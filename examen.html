@@ -7,11 +7,11 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 20px; /* Added margin */
             padding: 0;
             text-align: center;
-            background-color: #F3F4F6;
-            color: #1F2937;
+            background-color: #F3F4F6; /* Color secundario */
+            color: #1F2937; /* Color de texto secundario */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,7 +20,7 @@
         }
 
         header {
-            background-color: #1E3A8A;
+            background-color: #1E3A8A; /* Color principal */
             padding: 20px;
             width: 100%;
             display: flex;
@@ -32,33 +32,28 @@
         header h1 {
             margin: 0;
             font-size: 2.5em;
-            color: #FFFFFF;
-        }
-
-        header a {
-            position: absolute;
-            top: 20px;
-            left: 20px;
+            color: #FFFFFF; /* Color de texto principal */
         }
 
         header img {
             max-width: 150px;
             height: auto;
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
 
-      nav {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+        nav {
+            margin-top: 15px;
+        }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #10B981;
-    font-weight: bold;
-}
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #10B981; /* Color de acento */
+            font-weight: bold;
+        }
+
         main {
             width: 100%;
             max-width: 1200px;
@@ -70,7 +65,6 @@ nav a {
             justify-content: space-around;
             align-items: center;
             margin: 20px 0;
-            flex-wrap: wrap;
         }
 
         .promociones div {
@@ -80,8 +74,6 @@ nav a {
             border-radius: 5px;
             background-color: #fff;
             transition: transform 0.2s;
-            width: calc(33.333% - 20px); /* Adjust width for responsiveness */
-            box-sizing: border-box;
         }
 
         .promociones div:hover {
@@ -100,9 +92,9 @@ nav a {
 
         .ordenar a {
             display: inline-block;
-            background-color: #1E3A8A;
+            background-color: #1E3A8A; /* Color principal */
             padding: 10px 20px;
-            color: #FFFFFF;
+            color: #FFFFFF; /* Color de texto principal */
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
@@ -111,16 +103,15 @@ nav a {
         footer {
             margin-top: 20px;
             padding: 10px;
-            background-color: #1E3A8A;
-            color: #FFFFFF;
+            background-color: #1E3A8A; /* Color principal */
+            color: #FFFFFF; /* Color de texto principal */
             font-size: 0.9em;
         }
 
         footer a {
-            color: #10B981;
+            color: #10B981; /* Color de acento */
             text-decoration: none;
         }
-
         @media (max-width: 768px) {
             .promociones div {
                 width: calc(50% - 20px); /* Adjust width for smaller screens */
@@ -137,7 +128,7 @@ nav a {
 <body>
 
 <header>
-    <a href="examen.html"><img src="logo nido.jpg" alt="Logotipo de El Nido del Craving"></a>
+    <img src="logo nido.jpg" alt="Logotipo de El Nido del Craving">
     <h1>El Nido del Craving</h1>
     <nav>
         <a href="#menu">Menú</a>
@@ -150,7 +141,7 @@ nav a {
     <section>
         <h2>Bienvenidos al Nido del Craving</h2>
         <p>¡El lugar perfecto para disfrutar de hamburguesas, pizzas y yogurt en Xalapa!</p>
-        <p>En el nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para r[...]
+        <p>En el nido del Craving sabemos lo que los estudiantes necesitan: comida deliciosa, rápida y accesible. Ya sea que estés buscando un almuerzo rápido entre clases o un lugar cómodo para relajarte con amigos, ¡tenemos lo que necesitas!
     </section>
 
     <section id="promociones" class="promociones">
@@ -199,7 +190,7 @@ nav a {
     <a href="#">Instagram</a> |
     <a href="#">Twitter</a>
 </footer>
-<div class="footer">
+    <div class="footer">
   <p>&copy; Katherine Huerta Almora, Última actualización 20/01/2025 All Rights Reserved.</p>
 </div>
 
