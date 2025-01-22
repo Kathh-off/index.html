@@ -24,7 +24,7 @@
             padding: 20px;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
             position: relative;
         }
@@ -38,10 +38,15 @@
         header img {
             max-width: 150px;
             height: auto;
+            position: absolute;
+            top: 20px;
+            left: 20px;
         }
 
         nav {
+            margin-top: 15px;
             display: flex;
+            justify-content: center;
         }
 
         nav a {
@@ -51,51 +56,36 @@
             font-weight: bold;
         }
 
-        .menu-toggle {
+        .hamburger-menu {
             display: none;
-            background-color: transparent;
-            border: none;
             cursor: pointer;
-            font-size: 1.5em;
-            color: #FFFFFF;
+            position: absolute;
+            right: 20px;
+            top: 20px;
         }
 
-        .menu-toggle:focus {
-            outline: none;
+        .hamburger-menu div {
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+            margin: 6px 0;
         }
 
-        .menu {
-            display: flex;
+        .menu-mobile {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #1E3A8A;
+            padding: 10px;
+            border-radius: 5px;
         }
 
-        .menu.show {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-                flex-direction: column;
-                background-color: #1E3A8A;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                padding: 10px 0;
-            }
-
-            nav.show {
-                display: flex;
-            }
-
-            nav a {
-                margin: 10px 0;
-                color: #FFFFFF;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
+        .menu-mobile a {
+            margin: 10px 0;
+            color: #fff;
         }
 
         main {
@@ -158,12 +148,28 @@
         }
 
         @media (max-width: 768px) {
-            .promociones {
-                flex-direction: column;
+            .promociones div {
+                width: calc(50% - 20px);
             }
+        }
 
+        @media (max-width: 480px) {
             .promociones div {
                 width: calc(100% - 20px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .menu-mobile.active {
+                display: flex;
             }
         }
     </style>
@@ -171,14 +177,23 @@
 <body>
 
 <header>
-    <img src="logo nido.jpg" alt="Logotipo de El Nido del Craving">
+    <a href="examen.html"><img src="logo nido.jpg" alt="Logotipo de El Nido del Craving">
     <h1>El Nido del Craving</h1>
-    <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button>
-    <nav class="menu">
+    <nav>
         <a href="#menu">Menú</a>
         <a href="#promociones">Promociones</a>
         <a href="#contacto">Contacto</a>
     </nav>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="menu-mobile">
+        <a href="#menu">Menú</a>
+        <a href="#promociones">Promociones</a>
+        <a href="#contacto">Contacto</a>
+    </div>
 </header>
 
 <main>
@@ -234,17 +249,16 @@
     <a href="#">Instagram</a> |
     <a href="#">Twitter</a>
 </footer>
+
 <div class="footer">
-    <p>&copy; Katherine Huerta Almora, Última actualización 20/01/2025. All Rights Reserved.</p>
+    <p>&copy; Katherine Huerta Almora, Última actualización 20/01/2025 All Rights Reserved.</p>
 </div>
 
 <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-
-    menuToggle.addEventListener('click', () => {
-        menu.classList.toggle('show');
-    });
+    function toggleMenu() {
+        const menu = document.querySelector('.menu-mobile');
+        menu.classList.toggle('active');
+    }
 </script>
 
 </body>
